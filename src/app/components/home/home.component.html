@@ -1,0 +1,24 @@
+<div class="filters">
+  <mat-form-field>
+    <mat-label>Sort</mat-label>
+    <mat-select
+      panelClass="sort-select"
+      [(ngModel)]="sort"
+      (selectionChange)="searchGames('metacrit',sort)"
+    >
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="released">Released</mat-option>
+      <mat-option value="added">Added</mat-option>
+      <mat-option value="created">Created</mat-option>
+      <mat-option value="updated">Updated</mat-option>
+      <mat-option value="rating">Rating</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <h1 *ngIf="searchQuery" class="text">{{searchQuery}}</h1>
+  <div class="games">
+    <ng-container *ngFor="let game of games">
+      <app-game-card [game]="game" (newItemEvent)="setSelectedGame($event)"></app-game-card>
+    </ng-container>
+  </div>
+</div>
+

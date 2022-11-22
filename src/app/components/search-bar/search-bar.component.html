@@ -1,0 +1,15 @@
+<div class="search">
+  <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <span class="logo" routerLink="/">NgVGDB</span>
+    <input
+      class="search-input"
+      [disabled]="isDisabled"
+      name="search"
+      ngModel
+      placeholder="Search 500,000+ games"
+      #searchInput
+      (keyup)="onChange(searchInput.value)"
+    />
+    <button class="search-button">Search</button>
+  </form>
+</div>
